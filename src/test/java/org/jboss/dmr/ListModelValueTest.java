@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.fail;
+
+import org.junit.Assert;
 import org.junit.Test;
 
 public class ListModelValueTest {
@@ -30,7 +32,11 @@ public class ListModelValueTest {
 
     @Test
     public void testListModelValueDataInput() {
-        // TODO implement test
+        ModelNode list = ModelNode.fromString("[001,010,100]");
+        Assert.assertEquals(3, list.asList().size());
+        Assert.assertEquals("001", list.asList().get(0).asString());
+        Assert.assertEquals("010", list.asList().get(1).asString());
+        Assert.assertEquals("100", list.asList().get(2).asString());
     }
 
     @Test
